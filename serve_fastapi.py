@@ -16,7 +16,7 @@ app = FastAPI(
 MODELS_DIR = os.path.join(os.path.dirname(__file__), 'models')
 # Load the latest model and vectorizer at startup
 # We are choosing to serve the MultinomialNB model
-MODEL_PATH = get_latest_artifact(MODELS_DIR, "multinomial_nb")
+MODEL_PATH = get_latest_artifact(MODELS_DIR, "multinomial_nb", exclude_pattern="vectorizer")
 VECTORIZER_PATH = get_latest_artifact(MODELS_DIR, "multinomial_nb_vectorizer")
 
 model = None
@@ -79,7 +79,7 @@ def predict(request: PredictionRequest):
 
     # 3. Return the response
     return PredictionResponse(
-        prediction=prediction[0],
+        prediction=str(prediction[0]),
         model_used=os.path.basename(MODEL_PATH),
         vectorizer_used=os.path.basename(VECTORIZER_PATH)
     )

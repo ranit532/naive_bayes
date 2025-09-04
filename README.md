@@ -196,12 +196,30 @@ The API will be available at `http://127.0.0.1:8000`. You can access the interac
 
 You can send a `POST` request to the `/predict` endpoint to get a classification for a piece of text.
 
-Using `curl`:
+<details>
+<summary>Using `curl` (Linux/macOS/WSL)</summary>
+
 ```bash
 curl -X POST "http://127.0.0.1:8000/predict" \
 -H "Content-Type: application/json" \
 -d '{"text": "This is a sample sentence about category A"}'
 ```
+
+</details>
+
+<details>
+<summary>Using PowerShell (Windows)</summary>
+
+In PowerShell, `curl` is an alias for `Invoke-WebRequest`, which uses a different syntax.
+
+```powershell
+Invoke-WebRequest -Uri "http://127.0.0.1:8000/predict" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{"text": "This is a sample sentence about category A"}'
+```
+
+</details>
 
 **Expected Response:**
 ```json
