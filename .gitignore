@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# IDEs
+.vscode/
+.idea/
+
+# MLflow
+mlruns/
+
+# Model artifacts
+models/*.joblib
+
+# Generated Data
+data/synthetic_text_data.csv
+
+# OS-specific
+.DS_Store
+Thumbs.db
